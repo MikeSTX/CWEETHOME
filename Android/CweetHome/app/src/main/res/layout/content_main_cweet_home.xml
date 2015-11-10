@@ -9,15 +9,22 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:showIn="@layout/home"
     tools:context=".mainCweetHome">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connexion"
+        android:id="@+id/buttonConnexiontoIP"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp"
+        android:layout_alignParentEnd="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Test de texte ahahah"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:textColor= "#00FF00"
-        android:textSize="25sp"/>
-
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="State of http request"
+        android:id="@+id/textStateHttpReq"
+        android:layout_below="@+id/buttonConnexiontoIP"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

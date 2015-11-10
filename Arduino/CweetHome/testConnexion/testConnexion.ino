@@ -6,16 +6,15 @@
 
 
 int LED = 8;// declaration de la variable LED sur la broche 3
-// cette broche est une PWM correspondant au port A sur le motor shield, sur ce port est branchÃ© les leds
+// cette broche est une PWM correspondant au port A sur le motor shield, sur ce port est branchÃƒÂ© les leds
 
 
+byte mac[] = { 0x90, 0xA2, 0xDA, 0x10, 0x03, 0x2A }; //dÃƒÂ©claration de l'adresse MAC de la carte Arduino
+byte ip[] = { 192, 168, 1, 102 }; //dÃƒÂ©claration de l'adresse IP de la carte Arduino
+byte passerelle[] = { 192, 168, 1, 1 }; //dÃƒÂ©claration de l'adresse IP du routeur
+byte masque[] = { 255, 255, 255, 0 }; //dÃƒÂ©claration de l'adresse du masque de sous-rÃƒÂ©seau
 
-byte mac[] = { 0x90, 0xA2, 0xDA, 0x10, 0x03, 0x2A }; //dÃ©claration de l'adresse MAC de la carte Arduino
-byte ip[] = { 192, 168, 1, 102 }; //dÃ©claration de l'adresse IP de la carte Arduino
-byte passerelle[] = { 192, 168, 1, 1 }; //dÃ©claration de l'adresse IP du routeur
-byte masque[] = { 255, 255, 255, 0 }; //dÃ©claration de l'adresse du masque de sous-rÃ©seau
-
-EthernetServer serveurHTTP(80); //crÃ©er un objet serveur en utilisant le port 80 qui est le port HTTP par dÃ©faut
+EthernetServer serveurHTTP(80); //crÃƒÂ©er un objet serveur en utilisant le port 80 qui est le port HTTP par dÃƒÂ©faut
 int comptChar = 0;
 
 
@@ -30,7 +29,8 @@ serveurHTTP.begin(); //initialisation du serveur
 
 
    pinMode(LED, OUTPUT); //initialisation des "LED" en sortie
-   digitalWrite (LED, 0); //initialisation des "LED" Ã  zÃ©ro
+   digitalWrite (LED, 0); //initialisation des "LED" ÃƒÂ  zÃƒÂ©ro
+
 
 }
 
@@ -57,8 +57,9 @@ void loop(){
     {
       Serial.println("Read Data");
       Serial.println(String(clientReadString));
+    
     }
-   char json[] = "";
+    char json[] = "";
     StaticJsonBuffer<200> jsonBuffer;
 
     JsonObject& root = jsonBuffer.parseObject(json);
@@ -71,5 +72,6 @@ void loop(){
    //Serial.println(comptChar);
 
   }
+
 
 

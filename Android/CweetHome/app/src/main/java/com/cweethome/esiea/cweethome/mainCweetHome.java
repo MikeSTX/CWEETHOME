@@ -51,7 +51,7 @@ public class mainCweetHome extends AppCompatActivity {
 
                 // Creation of JSON object
                 // ------------------------------------------------
-                String messageHttp = "{\"Led1\":\"ON\"}";
+                String messageHttp = "{\"LIG\":1:1,2:0,3:0}";
                 //String messageHttp = "bonjour";
                 MediaType JSON = MediaType.parse("application/json; charset=utf-8");
                 RequestBody JSONbody = RequestBody.create(JSON, messageHttp);

@@ -40,6 +40,48 @@ public class mainCweetHome extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Button btn = (Button) findViewById(R.id.buttonConnexiontoIP);
+        Button btn2 = (Button) findViewById(R.id.bubul);
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+
+            OkHttpClient client = new OkHttpClient();
+
+            @Override
+            public void onClick(View view) {
+
+                final TextView txt = (TextView) findViewById(R.id.textStateHttpReq);
+
+                // Creation of JSON object
+                // ------------------------------------------------
+                String messageHttp = "{\"LIG\":1:0,2:1,3:1}";
+                //String messageHttp = "bonjour";
+                MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+                RequestBody JSONbody = RequestBody.create(JSON, messageHttp);
+                txt.setText("Bouh");
+
+                // Do this fucking request
+                // ---------------------------------------------
+                Request request = new Request.Builder()
+                        .url("http://192.168.1.102/")
+                        .post(JSONbody)
+                        .build();
+
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Request request, IOException e) {
+                        Log.w("OK", "NOK : " + e);
+                    }
+
+                    @Override
+                    public void onResponse(Response response) throws IOException {
+                        System.out.println(response.toString());
+                        Log.d("OK", response.toString());
+                        Log.d("OK", "OK");
+                    }
+                });
+            }
+        });
+
         btn.setOnClickListener(new View.OnClickListener() {
 
             OkHttpClient client = new OkHttpClient();
@@ -67,14 +109,14 @@ public class mainCweetHome extends AppCompatActivity {
                 client.newCall(request).enqueue(new Callback() {
                     @Override
                     public void onFailure(Request request, IOException e) {
-                        Log.w("OK", "NOK : " + e);
+                        Log.w("OK", "NOK 2: " + e);
                     }
 
                     @Override
                     public void onResponse(Response response) throws IOException {
                         System.out.println(response.toString());
                         Log.d("OK", response.toString());
-                        Log.d("OK", "OK");
+                        Log.d("OK", "OK 2");
                     }
                 });
             }
